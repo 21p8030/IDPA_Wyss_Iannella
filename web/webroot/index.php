@@ -15,3 +15,7 @@ echo "requested params: " . print_r($_REQUEST, true) . "\n";
 // Auto-Laden von Klasse "Test" im Namespace "M151" (Verzeichnis src/):
 $test = new M151\Test();
 $test->hello();
+
+
+$mycontroller = new \M151\Controller\MyController();
+$mycontroller->test();
