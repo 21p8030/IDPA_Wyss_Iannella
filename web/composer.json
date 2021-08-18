@@ -1,0 +1,13 @@
+{
+    "name": "bzt-tg/modul151",
+    "description": "M151 - DB in Webapp einbinden",
+    "type": "project",
+    "require": {
+        "php": ">= 7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "M151\\": "src/classes/"
+        }
+    }
+}

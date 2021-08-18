@@ -1,0 +1,119 @@
+- name: Setup linux guest vm
+  hosts: all
+  connection: local
+  become: yes
+  become_user: root
+  vars:
+    student_user: student
+    vagrant_provider: virtualbox
+
+  tasks:
+    - name: Install needed system packages
+      apt:
+          state: latest
+          update_cache: yes
+          name:
+              - curl
+              - apt-transport-https
+              - ca-certificates
+              - curl
+              - php-cli
+              - chromium-browser
+              - firefox
+              - plantuml
+              - graphviz
+              - git
+              - xfce4
+              - ristretto
+              - lightdm
+              - lightdm-gtk-greeter
+              - xfce4-whiskermenu-plugin
+              - gnupg
+              - lsb-release
+              - mysql-workbench
+
+    - name: Install virtualbox guest tools
+      when: vagrant_provider == "virtualbox"
+      apt:
+          state: latest
+          name:
+              - virtualbox-guest-dkms
+              - virtualbox-guest-utils
+              - virtualbox-guest-x11
+
+    - name: Install vmware OpenVM tools
+      when: vagrant_provider == "vmware"
+      apt:
+          state: latest
+          name:
+              - open-vm-tools-desktop
+
+    - name: add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/{{ansible_system | lower}}/{{ansible_distribution | lower}}/gpg
+        state: present
+
+    - name: add docker repository to apt
+      apt_repository:
+        repo: deb https://download.docker.com/{{ ansible_system | lower }}/{{ ansible_distribution | lower }} {{ ansible_distribution_release }} stable
+        state: present
+
+    - name: Install docker
+      apt:
+        state: latest
+        update_cache: yes
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+
+    - name: Install docker-compose
+      get_url:
+        url: https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+        dest: /usr/local/bin/docker-compose
+        mode: 'a+x'
+    
+    - name: Set keyboard layout
+      replace:
+        path: /etc/default/keyboard
+        regexp: '^XKBLAYOUT=".*"'
+        replace: 'XKBLAYOUT="ch"'
+
+    - name: Add user vagrant to docker group
+      user:
+        name: vagrant
+        groups: docker
+        append: yes
+
+    - name: Add student user
+      user:
+        name: "{{ student_user }}"
+        # generated with:
+        # ansible all -i localhost, -m debug -a "msg={{ 'xxxxx' | password_hash('sha512', 'somesecretsalt') }}"
+        password: "$6$pwsalt$XdYOvh.vfdHZtOg7IEBLxAGikA.hb7DAvme/3.eG9SRIJIpS6O0Dyv2aYSr32wfUAE8o/6XKbzBEj2BB1DQuN."
+        shell: /bin/bash
+        home: "/home/{{ student_user }}"
+        groups: "docker,sudo"
+        append: yes
+
+
+- name: Install VS Code
+  hosts: all
+  connection: local
+  become: yes
+  become_user: root
+  vars:
+    student_user: student
+
+  roles:
+    - role: gantsign.visual-studio-code
+      users:
+        - username: "{{ student_user }}"
+          visual_studio_code_extensions:
+            - felixfbecker.php-pack
+            - bmewburn.vscode-intelephense-client
+            - jebbs.plantuml
+            - yzhang.markdown-all-in-one
+          visual_studio_code_settings: {
+            "plantuml.server": "https://www.plantuml.com/plantuml"
+          }

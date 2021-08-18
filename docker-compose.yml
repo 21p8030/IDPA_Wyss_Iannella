@@ -1,0 +1,42 @@
+version: "3"
+services:
+  docsify:
+    build: ./docker/docsify
+    container_name: m151-docsify
+    ports:
+      - "10000:10000"
+      - "35729:35729" # live-reload-Port
+    volumes:
+      - ./doc:/site
+    working_dir: /site
+    command: docsify serve . -p 10000 --livereload-port 35729
+
+  plantuml:
+    image: "plantuml/plantuml-server:jetty"
+    container_name: m151-plantuml
+    ports:
+      - "10001:8080"
+
+  web:
+    build: docker/web/
+    container_name: m151-web
+    ports:
+        - "8020:80"
+    volumes:
+        - ./web:/var/www/html
+
+  db:
+    image: mysql:8
+    container_name: m151-db
+    volumes:
+        - ./db-data/:/var/lib/mysql/
+        - ./db-init/:/docker-entrypoint-initdb.d/
+    ports:
+        - "3306:3306"
+    # innodb_use_native_aio=0 is needed when using a vritualbox shared folder mount
+    # default-authentication-plugin is needed to allow e.g. workbench client to connect with a password
+    command: "--default-authentication-plugin=mysql_native_password --innodb_use_native_aio=0 --lower_case_table_names=1"
+    environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_USER=m151
+        - MYSQL_PASSWORD=m151
