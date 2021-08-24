@@ -19,3 +19,6 @@ $test->hello();
 
 $mycontroller = new \M151\Controller\MyController();
 $mycontroller->test();
+
+$myBenutzer = new \M151\Entity\Benutzer();
+$myBenutzer->setPassword("TestPasswort");
