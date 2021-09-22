@@ -1,24 +1,35 @@
 <?php
 
-// lade composer autoloader (nur hier in index.php notwendig):
+use M151\Application;
+use M151\Controller\DefaultController;
+use M151\Controller\DemoController;
+use M151\Controller\LoginController;
+use M151\Router;
+
+# lade composer autoloader:
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// setze Output-Type auf Plaintext, für debugging-Ausgabe:
-header('Content-Type: text/plain');
+# Router instanzieren:
+$router = new Router();
 
-// extrahiere URL-Route:
-$path_info = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
-echo "requested route: {$path_info}\n";
-echo "requested params: " . print_r($_REQUEST, true) . "\n";
+# Definiere Routen:
+$router->get('/', DefaultController::class, 'index');
 
-// Teste Auto-Loading (siehe composer.json):
-// Auto-Laden von Klasse "Test" im Namespace "M151" (Verzeichnis src/):
-$test = new M151\Test();
-$test->hello();
+// View-Demo: manuell, ohne View-Klasse:
+$router->any('/viewdemo/manual', DemoController::class, 'manual');
+// View-Demo: eigene View-Klasse:
+$router->any('/viewdemo/own-view', DemoController::class, 'ownView');
+// View-Demo: Smarty Template Engine:
+$router->any('/viewdemo/engine', DemoController::class, 'smartyView');
+// View-Demo: JSON-View / Response:
+$router->any('/viewdemo/json', DemoController::class, 'jsonView');
+$router->any('/demo', DefaultController::class, 'demo');
 
+$router->any('/dbtest', DefaultController::class, 'dbtest');
 
-$mycontroller = new \M151\Controller\MyController();
-$mycontroller->test();
+$router->any('/login', LoginController::class, 'loginForm');
+$router->any('/login_try', LoginController::class, 'login_try');
 
-$myBenutzer = new \M151\Entity\Benutzer();
-$myBenutzer->setPassword("TestPasswort");
+# Start der Applikation!
+$app = new Application($router);
+$app->start();
