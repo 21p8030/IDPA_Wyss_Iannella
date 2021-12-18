@@ -2,7 +2,6 @@
 
 namespace M151\Controller;
 
-use M151\Http\Request;
 use M151\Model\Benutzer;
 use M151\Model\Category;
 use M151\Model\Thread;

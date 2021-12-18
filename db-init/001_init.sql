@@ -67,13 +67,11 @@ create table posts (
 );
 
 -- Benutzer einfügen:
--- ACHTUNG: Der Einfachheit halber wurden hier Plain-Text-Passwörter verwendet. Dies wird in der Praxis NICHT so gemacht!
--- Passwörter sollten mit einem sicheren Hash-Verfahren in der Datenbank gespeichert werden!
 insert into benutzer values
-(null,'alex','geheim','Schenkel','Alex','alex@alexi.ch',null, CURDATE()),
-(null,'frodo','ring','Beutlin','Frodo','frodo@auenland.net',null, CURDATE()),
-(null,'bilbo','schatz','Beutlin','Bilbo','bilbo@auenland.net',null, CURDATE()),
-(null,'thorin','gold','Eichenschild','Thorin','thorin@moria.net',null, CURDATE());
+(null,'alex','$2y$10$uT/rErJ5lYuqxpyzxpdGeOq9/OPiB0ZMpn3E6qAyX0xpTP16BA6DW','Schenkel','Alex','alex@alexi.ch',null, CURDATE()),
+(null,'frodo','$2y$10$Qkr4aHjuZNUuK.xTcb8MgOEUN0u5G3XnwWPV04jvxRkUqp8VVjEnO','Beutlin','Frodo','frodo@auenland.net',null, CURDATE()),
+(null,'bilbo','$2y$10$lrQrX1qr.JoJed.a.3/ww.trQAZsOwwdCIJ1bmV5cSZ1VhKdHmHdG','Beutlin','Bilbo','bilbo@auenland.net',null, CURDATE()),
+(null,'thorin','$2y$10$Plo/QOggKI6YdrnX27RWce58MbFglUzJ6cPBu7TQqcr2j/sH9Rj4G','Eichenschild','Thorin','thorin@moria.net',null, CURDATE());
 
 insert into categorys values
 ('Allgemein', 1),

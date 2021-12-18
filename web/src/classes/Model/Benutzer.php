@@ -59,7 +59,7 @@ class Benutzer extends Model {
 
     public function Login($login, $passwort){
         $user = $this->getUserByLogin($login);
-        if($user->passwort === $passwort){
+        if(password_verify($passwort, $user->passwort)){
             return true;
         } else {
             return false;
