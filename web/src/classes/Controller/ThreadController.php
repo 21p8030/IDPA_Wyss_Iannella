@@ -63,9 +63,11 @@ class ThreadController extends Controller {
 
             foreach ($PostAnswers as $Answers) {
                 $Answers->UserName = $User->getById($Answers->UserId)[0]->login;
+                $Answers->register_date = $User->getById($Answers->UserId)[0]->register_date;
             }
             foreach ($PostsHighestData as $Answer) {
                 $Answer->UserName = $User->getById($Answer->UserId)[0]->login;
+                $Answer->register_date = $User->getById($Answer->UserId)[0]->register_date;
             }   
         }
 

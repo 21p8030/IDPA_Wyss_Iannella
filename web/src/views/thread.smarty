@@ -3,7 +3,7 @@
 
 <head>
     {include file='html_header.smarty'}
-    <title>Test</title>
+    <title>Thread</title>
 </head>
 
 <body>
@@ -11,6 +11,8 @@
     <article>
         <aside>
             Benutzername : {$ThreadUser[0]->login}
+            <br>
+            Mitglied seit: {$ThreadUser[0]->register_date|date_format}
             <br>
             Geschrieben : {$threadData[0]->Date|date_format}
             <br>
@@ -46,7 +48,9 @@
     {foreach $PostsData as $Post}
     <article>
         <aside>
-            Benutzername : {$Post->UserName} {$Post->PostId}
+            Benutzername : {$Post->UserName}
+            <br>
+            Mitglied seit: {$Post->register_date|date_format}
             <br>
             Geschrieben : {$Post->Date|date_format}
             <br>

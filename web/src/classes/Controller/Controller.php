@@ -2,20 +2,14 @@
 namespace M151\Controller;
 
 class Controller {
-    /*  Hier wird beim Base Controller im Konstruktor eine
-        Methode aufgerufen die überprüft ob der User bereits
-        eingeloggt ist oder nicht, somit spart man sich auf
-        jeder neuen Seite wieder eine neue Abfrage zu schreiben
+    /*  Hier wird beim Base Controller im Konstruktor die Methode session_start aufgerufen
+    *   um die Session nicht in jedem Controller aufs neue starten zu müssen
     */
     public function __construct() {
-        session_start();
-        //$this->AuthMethod();
+        if(!isset($_SESSION)) 
+        { 
+            session_start(); 
+        } 
     }
 
-    public function AuthMethod()
-    {
-        if (empty($_SESSION['username'])) {
-            header("Location:/login");
-        }
-    }
 }

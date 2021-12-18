@@ -103,11 +103,15 @@ abstract class Model {
     protected static function executeQuery($query, $params = null) {
         // Wir holen uns eine DB-Connection vom DB-Singleton:
         $conn = DBH::getInstance()->getConnection();
-        //$test = PDO::prepare($query);
-        // $stm = $conn->prepare($query);
-        // $stm->execute();
-        $stm = $conn->query($query);
-        //var_dump($stm);
+        $stm = $conn->prepare($query);
+        $valueNr = null;
+        if ($params != null) {
+            foreach ($params as $param) {
+                $stm->bindValue($valueNr, $param);
+                $valueNr++;
+            }
+        }
+        $stm->execute();
         if ($stm) {
             $test = $stm->fetchAll(PDO::FETCH_ASSOC);
             //var_dump($test);

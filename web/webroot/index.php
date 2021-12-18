@@ -22,38 +22,13 @@ $router = new Router();
 # Hier werden die Routen definiert
 // $router->get('/', DefaultController::class, 'index');
 
-// View-Demo: manuell, ohne View-Klasse:
-$router->any('/viewdemo/manual', DemoController::class, 'manual');
-// View-Demo: eigene View-Klasse:
-$router->any('/viewdemo/own-view', DemoController::class, 'ownView');
-// View-Demo: Smarty Template Engine:
-$router->any('/viewdemo/engine', DemoController::class, 'smartyView');
-// View-Demo: JSON-View / Response:
-$router->any('/viewdemo/json', DemoController::class, 'jsonView');
-$router->any('/demo', DefaultController::class, 'demo');
-
-$router->any('/dbtest', DefaultController::class, 'dbtest');
-
 $router->any('/login', LoginController::class, 'loginForm');
 $router->any('/login_try', LoginController::class, 'login_try');
-$router->any('/geheim', LoginController::class, 'geheim');
-
-
-$router->any('/ModelDemoController', ModelDemoController::class, 'index');
-
-$router->any('/Weather', WeatherController::class, 'test');
-$router->any('/Weather2', WeatherController::class, 'getWeather');
-
-
-
-
-
 
 $router->any('/', UserController::class, 'index');
 $router->any('/index', UserController::class, 'index');
 
 $router->any('/myThreads', UserController::class, 'myThreads');
-$router->any('/user', UserController::class, 'userPage');
 $router->any('/logout', UserController::class, 'logout');
 
 $router->any('/thread', ThreadController::class, 'showThread');

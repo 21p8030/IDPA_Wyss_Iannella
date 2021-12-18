@@ -3,6 +3,8 @@
     <aside style="padding: 0px; padding-left: 10px;">
         Benutzername : {$Answer->UserName} {$Answer->PostId}
         <br>
+        Mitglied seit: {$Answer->register_date|date_format}
+        <br>
         Geschrieben : {$Answer->Date|date_format}
         <br>
         Uhrzeit : {$Answer->Date|date_format:"%H:%M"}

@@ -10,11 +10,8 @@ use Smarty;
 
 class TagsController extends Controller {
 
-    public function __construct() {}
-
-
     public function TagsVerarbeitung($PostData, $newThreadId){
-        var_dump($newThreadId);
+        //var_dump($newThreadId);
         $tags = new Tags();
         $test = $tags->getTagName();
         //var_dump(array_diff($PostData, $test));
@@ -38,7 +35,6 @@ class TagsController extends Controller {
     }
 
     public function showTags(){
-        session_start();
 
         $tags = new Tags();
         $tagsData = $tags->getAllTags();
@@ -50,7 +46,6 @@ class TagsController extends Controller {
     }
 
     public function showThreadByTag(Request $req){
-        session_start();
 
         if ($req->getParam('id')) {
             $ThreadData = [];

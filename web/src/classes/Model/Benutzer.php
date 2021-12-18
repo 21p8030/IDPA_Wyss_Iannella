@@ -4,7 +4,7 @@ namespace M151\Model;
 
 class Benutzer extends Model {
     public const DB_TABLE = 'benutzer';
-    public const DB_COLS = ['id','login', 'passwort','name','vorname','email','letzter_login'];
+    public const DB_COLS = ['id','login', 'passwort','name','vorname','email','letzter_login', 'register_date'];
 
     public $name;
     public $vorname;
@@ -12,6 +12,7 @@ class Benutzer extends Model {
     public $passwort;
     public $email;
     public $letzter_login;
+    public $register_date;
 
     public function findByLogin($login) {
         return static::findByProperty('login', $login);
