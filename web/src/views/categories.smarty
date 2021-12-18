@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    {include file='html_header.smarty'}
+    <title>Kategorien</title>
+</head>
+
+<body>
+    {include file='navbar.smarty'}
+    <h1>Alle Kategorien</h1>
+    <div style="display: flex;">
+        <div class="index_wrapper">
+            <ul style="display: flex;"><div class="index_list_div">Kategorie</div><div>Anzahl Beiträge</div></ul>
+            <hr class="index_hr">
+            {foreach $CategorysData as $key=>$value}
+                    <a href="/category?name={$value->name}" style="text-decoration: none;"><ul style="display: flex;"><div class="index_list_div">{$value->name}</div><div>{$value->numberOfThreads} Beiträge</div></ul></a>
+                    <hr class="index_hr">
+            {/foreach}
+        </div>
+    </div>
+</body>
+
+</html>

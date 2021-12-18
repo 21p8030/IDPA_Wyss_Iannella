@@ -1,0 +1,23 @@
+{if $postId === $Answer->AnswerId}
+<article id="answer_{$Answer->PostId}" style="margin-top: 20px; border: 2px solid #000;">
+    <aside style="padding: 0px; padding-left: 10px;">
+        Benutzername : {$Answer->UserName} {$Answer->PostId}
+        <br>
+        Geschrieben : {$Answer->Date|date_format}
+        <br>
+        Uhrzeit : {$Answer->Date|date_format:"%H:%M"}
+    </aside>
+    <div style="margin-bottom: 20px;">
+        {$Answer->Body}
+    </div>
+    {include file="forms.smarty" anchorId="#answer_`$Answer->PostId`" name=$Answer->PostId answerId=$Answer->PostId}
+    <button type="button" onclick="showForm({$Answer->PostId})" class="btn btn-primary btn-sm">Antwort schreiben</button>
+
+    {if $LoggedInUserId === $Answer->UserId}
+            <a href="/deletePost?id={$Answer->PostId}"><i class="far fa-trash-alt"></i></a>
+        {/if}
+    {foreach $AnswersData as $AnswerTest}
+            {include file='post_Answers.smarty' Answer=$AnswerTest postId=$Answer->PostId  AnswersData=$AnswersData}
+    {/foreach}
+</article>
+{/if}

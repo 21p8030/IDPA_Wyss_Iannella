@@ -1,0 +1,24 @@
+<!-- Das zugehörige View-Template: login-form.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    {include file='html_header.smarty'}
+</head>
+
+<body>
+    {include file='navbar.smarty'}
+    <h1>Login</h1>
+    <form action="/login_try" method="POST">
+        <p>{$error}</p>
+        <label>Username:
+<input type="text" name="login">
+</label>
+        <label>Passwort:
+<input type="password" name="passwort">
+</label>
+        <button type="submit">loginn</button>
+    </form>
+</body>
+
+</html>

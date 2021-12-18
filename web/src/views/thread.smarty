@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    {include file='html_header.smarty'}
+    <title>Test</title>
+</head>
+
+<body>
+    {include file='navbar.smarty'}
+    <article>
+        <aside>
+            Benutzername : {$ThreadUser[0]->login}
+            <br>
+            Geschrieben : {$threadData[0]->Date|date_format}
+            <br>
+            Uhrzeit : {$threadData[0]->Date|date_format:"%H:%M"}
+            <br>
+            Kategorie : <a href="/category?name={$threadData[0]->Category}" style="text-decoration: none;">{$threadData[0]->Category}</a>
+            <br>
+            {if !empty($tagData)}
+            Tags : {foreach $tagData as $tag}<a href="/tag?id={$tag[0]->id}" style="text-decoration: none;">{$tag[0]->name}</a>, {/foreach}
+            {/if}
+        </aside>
+        <h3>{$threadData[0]->Title}</h3>
+        <div style="margin-bottom: 20px;">
+            {$threadData[0]->Body}
+        </div>
+        {include file="forms.smarty" name="thread" answerId=null}
+        {if isset($smarty.session.username) && !empty($smarty.session.username)}<button type="button" onclick="showForm('thread')" class="btn btn-primary btn-sm">Antwort schreiben</button>{/if}
+        {if $LoggedInUserId === $threadData[0]->UserId}
+            <a id="test" href="/deleteThread?id={$threadData[0]->ThreadId}"><i class="far fa-trash-alt"></i></a>
+        {/if}
+    </article>
+    {if !isset($smarty.session.username) || empty($smarty.session.username)}
+        <article>
+            <aside>
+            </aside>
+            <div>
+                Melde dich an um die Antworten zu sehen<br>
+                <button type="button" onclick='window.location.href = "/login";'  class="btn btn-primary btn-sm" >Login</button>
+            </div>
+        </article>
+    
+    {/if}
+    {foreach $PostsData as $Post}
+    <article>
+        <aside>
+            Benutzername : {$Post->UserName} {$Post->PostId}
+            <br>
+            Geschrieben : {$Post->Date|date_format}
+            <br>
+            Uhrzeit : {$Post->Date|date_format:"%H:%M"}
+        </aside>
+        <div style="margin-bottom: 20px;">
+            {$Post->Body}
+        </div>
+        {include file="forms.smarty" name=$Post->PostId answerId=$Post->PostId}
+        <button type="button" onclick="showForm({$Post->PostId})" class="btn btn-primary btn-sm">Antwort schreiben</button>
+
+        {if $LoggedInUserId === $Post->UserId}
+            <a href="/deletePost?id={$Post->PostId}"><i class="far fa-trash-alt"></i></a>
+        {/if}
+        {foreach $AnswersData as $Answer}
+            {include file='post_Answers.smarty' LoggedInUserId=$LoggedInUserId Answer=$Answer postId=$Post->PostId  AnswersData=$AnswersData}
+        {/foreach}
+    </article>
+    {/foreach}
+
+    {include file="scripts.smarty"}
+</body>
+</html>

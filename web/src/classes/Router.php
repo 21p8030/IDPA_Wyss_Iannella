@@ -47,6 +47,7 @@ class Router {
             // '/user/{:id}' --> hier wäre {:id} der dynamische Teil, welcher die Routen
             // '/user/5' oder '/user/alex' abdecken könnte.
             if ($routeInfo['route'] === $route && ($routeInfo['method'] === null || $method === $routeInfo['method'])) {
+                //var_dump($routeInfo);
                 return $routeInfo;
             }
         }

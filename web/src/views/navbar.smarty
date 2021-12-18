@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" style="{if !isset($smarty.session.username) && empty($smarty.session.username)}background-color: red;{/if}" href="/">Schulforum</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/categories">Kategorien
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tags">Tags
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/allThreads">Alle Beiträge
+          </a>
+        </li>
+        {if isset($smarty.session.username) && !empty($smarty.session.username)}
+          <li class="nav-item">
+            <a class="nav-link" href="/createThread">Frage stellen
+            </a>
+          </li>
+        {/if}
+      </ul>
+      <ul class="navbar-nav">
+        {if isset($smarty.session.username) && !empty($smarty.session.username)}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Benutzer</a>
+            <div class="dropdown-menu" style="right: 0px; left: unset;">
+              <a class="dropdown-item" href="/user">Mein Konto</a>
+              <a class="dropdown-item" href="/myThreads">Meine Beiträge</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="/logout">Logout</a>
+            </div>
+          </li>
+        {else}
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+        {/if}
+      </ul>
+    </div>
+  </div>
+</nav>

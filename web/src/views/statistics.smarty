@@ -1,0 +1,8 @@
+<div class="index_wrapper" style="height: 280px;">
+<h2>Statistiken</h2>
+    <ul style="display: flex;"><div class="index_list_div">Anzahl Fragen</div><div>{$stats[0]}</div></ul>
+    <hr class="index_hr">
+    <ul style="display: flex;"><div class="index_list_div">Anzahl Antworten</div><div>{$stats[1]}</div></ul>
+    <hr class="index_hr">
+    <ul style="display: flex;"><div class="index_list_div">Anzahl Benutzer</div><div>{$stats[2]}</div></ul>
+</div>

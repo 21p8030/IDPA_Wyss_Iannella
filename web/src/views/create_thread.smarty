@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    {include file='html_header.smarty'}
+    <title>Frage stellen</title>
+</head>
+
+<body>
+    {include file='navbar.smarty'}
+    <script>
+        $(document).ready(function() {
+    $(".js-example-tags").select2({
+      tags: true,
+      maximumSelectionLength: 5,
+      maximumInputLength: 15
+    });
+});
+    </script>
+
+    <h1>Stelle deine Frage:</h1>
+    <div style="width: 50%; margin: auto;">
+        <form method="POST">
+                <label class="col-form-label mt-4" for="inputDefault">Titel</label>
+                <input type="text" class="form-control" name="title" placeholder="Titel" id="inputDefault">
+                <label class="form-label mt-4">Frage</label>
+                <textarea class="form-control" rows="3" name="body"></textarea>
+                <label for="exampleSelect1" class="form-label mt-4">Kategorie</label>
+                <select class="form-select" name="category" id="exampleSelect1">
+                    {foreach $categories as $category}    
+                    <option>{$category->name}</option>
+                    {/foreach}
+                </select>
+                <label for="tagselect" class="form-label mt-4">Tags</label>
+                <select id="tagselect" name="tags[]" class="form-control js-example-tags" multiple="multiple" style="color: #555;">
+                    {foreach $tags as $tag}    
+                    <option>{$tag->name}</option>
+                    {/foreach}
+                </select>
+                <button type="submit" class="btn btn-primary">Absenden</button>
+        </form>
+    </div>
+</body>
+
+</html>

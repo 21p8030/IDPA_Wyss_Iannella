@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    {include file='html_header.smarty'}
+    <title>Alle Beiträge</title>
+</head>
+
+<body>
+    {include file='navbar.smarty'}
+    <div>
+        <div class="index_wrapper" style="width: 500px;">
+        <h3 style="text-align: center;">{if isset($Name)}{$Name}{else}Alle Beiträge{/if}</h3>
+            {foreach $threadData as $thread}
+                <a href="/thread?id={$thread->ThreadId}" style="text-decoration: none;"><ul style="width: 500px;"><div><h3>{$thread->Title}</h3></div><div class="mythread_body">{$thread->Body}</div></ul></a>
+                <hr>
+            {/foreach}
+        </div>
+    </div>
+</body>
+
+</html>
