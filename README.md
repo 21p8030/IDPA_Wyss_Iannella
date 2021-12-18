@@ -1,6 +1,37 @@
 M151 - DB in Web-Applikation einbinden - Bootstrap-Repository
 ==============================================================
 
+# Anmerkung Abgabe: 
+Falls es beim starten der Applikation zu folgender Fehlermeldung im Browser kommt: 
+
+``` 
+ERROR: unable to create directory /var/www/html/webroot/templates_c
+```
+
+dann muss man im webroot den Folder templates_c Manuel erstellen und diesem dann Berechtigungen vergeben, ich habe es der einfachheitshalber mit dem folgendem Befehl gemacht:
+
+```
+chmod 777 templates_c
+```
+
+
+
+Passwörter für user:
+
+username: alex
+passwort: geheim
+
+username: frodo
+passwort: ring
+
+username: bilbo
+passwort: schatz
+
+username: thorin
+passwort: gold
+
+
+
 Dieses Repository dient als Startpunkt für das Modul M151 - DB in Web-Applikation einbinden.
 
 Es definiert die für die Schüler-Infrastruktur notwendigen Dienste (Docker-Container, siehe `docker-compose.yml).
