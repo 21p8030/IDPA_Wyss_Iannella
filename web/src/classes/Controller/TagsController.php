@@ -47,7 +47,7 @@ class TagsController extends Controller {
 
     public function showThreadByTag(Request $req){
 
-        if ($req->getParam('id')) {
+        if ($req->getParam('id') && preg_match("/^\d+$/", $req->getParam('id'))) {
             $ThreadData = [];
             $tags = new Tags();
             $ThreadTags = new ThreadTags();

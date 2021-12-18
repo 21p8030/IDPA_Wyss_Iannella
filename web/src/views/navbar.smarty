@@ -35,7 +35,6 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Benutzer</a>
             <div class="dropdown-menu" style="right: 0px; left: unset;">
-              <a class="dropdown-item" href="/user">Mein Konto</a>
               <a class="dropdown-item" href="/myThreads">Meine Beiträge</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="/logout">Logout</a>

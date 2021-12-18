@@ -17,7 +17,7 @@
         <label>Passwort:
 <input type="password" name="passwort">
 </label>
-        <button type="submit">loginn</button>
+        <button type="submit">Login</button>
     </form>
 </body>
 

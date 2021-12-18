@@ -22,9 +22,9 @@
     <div style="width: 50%; margin: auto;">
         <form method="POST">
                 <label class="col-form-label mt-4" for="inputDefault">Titel</label>
-                <input type="text" class="form-control" name="title" placeholder="Titel" id="inputDefault">
+                <input required type="text" class="form-control" name="title" placeholder="Titel" id="inputDefault">
                 <label class="form-label mt-4">Frage</label>
-                <textarea class="form-control" rows="3" name="body"></textarea>
+                <textarea required class="form-control" rows="3" name="body"></textarea>
                 <label for="exampleSelect1" class="form-label mt-4">Kategorie</label>
                 <select class="form-select" name="category" id="exampleSelect1">
                     {foreach $categories as $category}    

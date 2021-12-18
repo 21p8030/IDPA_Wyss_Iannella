@@ -29,7 +29,7 @@ class PostController extends Controller {
         $this->getAllAnswers($Post, $postData[0], $AnswerIDs);
         //var_dump($AnswerIDs);
         foreach(array_reverse($AnswerIDs) as $ID) {
-            var_dump($ID);
+            //var_dump($ID);
             $Post->deletePost($ID);
         }
     }

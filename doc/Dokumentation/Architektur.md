@@ -78,26 +78,32 @@ Bei der Datenbank Anbindung wurde noch das Singleton Pattern verwendet im sicher
 
 Das verhindern von Session Hijaking kann in diesem Projekt nur bedingt angewendet werden, da die beste Methode die verschlüsselung der Kommunikation ist also https was bei so einem Lokalen Projekt nicht umsetzbar ist. Betreffend  Session Id erraten dies wird verhindert indem wir das ganze über die von PHP bereitgestellte Methode session_start() regeln.
 
-## Testing
+Ansonsten wurde natürlich noch die bekannte sql injection mittels Prepared Statements verhindert somit kann man nicht sql Code im input anhängen um diesen dann auf der Datenbank einfach ausführen zu lassen ohne, dass das gewollt ist vom Entwickler
 
-| ID | Bezeichnung | Erwartetes Ergebnis | Ergebnis | Massnahme |
-| ----------- | ----------- | ----------- | ----------- | ----------- |
-| T001 | Nicht eingeloggte Benutzer werden stets auf die Login-Seite verwiesen | Verweis auf Login-Seite | Erfolgreich | Keine |
-| T002 | Gast-Benutzer werden beim Aufruf von "Mein Profil" stets auf die Login-Seite verwiesen | Verweis auf Login-Seite | Erfolgreich | Keine |
-| T003 | Alle Benutzer werden beim Aufruf einer f�lschlichen URL stets auf die Error-Seite verwiesen | Verweis auf Error-Seite | Erfolgreich | Keine |
-| T004 | Ein Benutzer welcher sich korrekt einloggt wird stets auf die Home-Seite verwiesen | Verweis auf Home-Seite | Erfolgreich | Keine |
-| T005 | Ein Benutzer welcher sich als Gast anmeldet wird stets auf die Home-Seite verwiesen | Verweis auf Home-Seite | Erfolgreich | Keine |
-| T006 | Ein Benutzer welcher falsche Login-Daten eingibt wird stets darauf hingewiesen | "Try Again" wird auf der Login-Seite angezeigt | Erfolgreich | Keine |
-| T007 | Durch den Click auf ein Musikst�ck wird dessen Detail-Ansicht angezeigt | Anzeigen der Detail-Ansicht | Erfolgreich | Keine |
-| T008 | Ein eingeloggter Benutzer kann ein Musikst�ck Bewerten | Einf�gen der Bewertung in die DB | Erfolgreich | Keine |
-| T009 | Durchschnittsbewertung eines Musikst�cks wird berechnet und angezeigt | Korrekte Durchschnittsbewertung wird angezeigt | Erfolgreich | Keine |
-| T010 | Ein Gast-Benutzer kann ein Musikst�ck Bewerten | Einf�gen der Bewertung in die DB | Erfolgreich | Keine |
-| T011 | Einem eingeloggten Benutzer werden seine bereits bewerteten Musikst�cke unter "Mein Profil" <br> -> "Meine Bewertungen" aufgelistet | Bereits bewertete Musikst�cke werden aufgelistet | Erfolgreich | Keine |
-| T012 | Ein Musikst�ck, welches bereits vom eingeloggten Benutzer bewertet wurde, <br> soll dessen Bewertung bei der Detail-Ansicht gleich ins Formular laden | Bewertung vom eingeloggten Benutzer wird im Form angezeigt | Erfolgreich | Keine |
-| T013 | Ein eingeloggter Benutzer kann ein bereits bewertetes Musikst�ck neu bewerten | Update der Bewertung in der DB | Alle Bewertungen des Benutzers werden geupdated | �ndern der SQL-Query die f�r das Update zust�ndig ist |
-| T013b<br>/T014 | Ein eingeloggter Benutzer kann ein bereits bewertetes Musikst�ck neu bewerten | Update der Bewertung in der DB | Erfolgreich | Keine |
-| T015 | Die Suchfunktion listet die Musikst�cke auf, welche den Suchstring beinhalten | Musikst�cke, welche den Suchstring beinhalten, werden aufgelistet | Erfolgreich | Keine |
-| T016 | Alle Kn�pfe/Formulare welche an weitere Methoden/Seiten weiterleiten funktionieren | Es wird verwiesen | Erfolgreich | Keine |
+## Testing
+| ID   | Bezeichnung                                                  | Erwartetes Ergebnis                                          | Ergebnis    | Massnahme |
+| ---- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------- | --------- |
+| T1   | Nicht eingeloggte Benutzer sehen auf der Thread-Seite nur die Frage und einen Hinweis zum Login | Verweis auf Login-Seite/Eingeschränkte Nutzung               | Erfolgreich | Keine     |
+| T2   | Eingeloggte Benutzer werden auf der Thread Seite auf das Fehlende Login aufmerksam gemacht und ebenso Einfärbung des Logos oben Links | Hinweis auf Login-Seite                                      | Erfolgreich | Keine     |
+| T3   | Ein Benutzer welcher sich korrekt einloggt wird stets auf die Start-Seite verwiesen | Verweis auf Start-Seite                                      | Erfolgreich | Keine     |
+| T4   | Wenn der User das Login falsch eingibt erhält er eine Meldung, dass es einen Login Fehler gab | "Username oder Passwort falsch" wird auf angezeigt           | Erfolgreich | Keine     |
+| T5   | Auf der Start Seite wird eine Statistik angezeigt            | Die Statistik stimmt bei jedem Aufruf mit der Datenbank überein. | Erfolgreich | Keine     |
+| T6   | Kategorie Übersicht stimmt                                   | Die Anzahl Beiträge auf der Kategorie Übersicht egal ob Startseite oder Kategorie-Seite ist Korrekt und Updated sich wenn ein neuer Beitrag erstellt wird | Erfolgreich | Keine     |
+| T7   | Tags Übersicht                                               | Es werden alle Tags angezeigt auch neue welche hinzugefügt wurden | Erfolgreich | Keine     |
+| T8   | Tags/Kategorie Einzelansicht                                 | Es werden alle Beiträge welche zur betreffenden Kategorie oder zum betreffenden Tag gehören angezeigt. | Erfolgreich | Keine     |
+| T9   | Alle Beiträge                                                | Es werden alle Beiträge angezeigt                            | Erfolgreich | Keine     |
+| T10  | Frage stellen                                                | Das Formular verlangt einen Titel und einen Body ebenso ist bereits Standartmässig die Kategorie Allgemein angewählt. | Erfolgreich | Keine     |
+| T11  | Frage stellen (Tags)                                         | Man kann bis zu 5 Tags auswählen, entweder aus den bestehenden oder aber auch neue hinzufügen und diese werden dann auch bei späteren Aufrufen der Erstellen Seite angezeigt. | Erfolgreich | Keine     |
+| T12  | Frage stellen                                                | Nach erfolgreichem absenden des Formulars wird man direkt zur Einzelansicht des neuen Threads weitergeleitet | Erfolgreich | Keine     |
+| T13  | Einzelansicht Thread (Links)                                 | Die Links die bei Tags und Kategorie hinterlegt sind führen zur Übersicht der jeweiligen Kategorie/Tag | Erfolgreich | Keine     |
+| T14  | Einzelansicht                                                | Der Thread wird korrekt dargestellt mit allen Informationen (Wer, Wann, Kat/Tags) | Erfolgreich | Keine     |
+| T15  | Einzelansicht antworten                                      | Man kann mittels dem Button Antwort schreiben das Formular aufklappten und eine Antwort erfassen, welche nach absenden auch gleich ganz unten erscheinen wird. | Erfolgreich | Keine     |
+| T16  | Einzelansicht Antworten antworten                            | Man kann auf eine Antwort antworten und auf diese ebenso und immer so weiter. | Erfolgreich | Keine     |
+| T17  | Antwort löschen (ohne Antworten)                             | Wenn man der Verfasser der Antwort ist kann man diese über den Abfalleimer löschen. Diese wird dann nicht mehr angezeigt | Erfolgreich | Keine     |
+| T18  | Antwort löschen (mit Antworten)                              | Der Verfasser löscht die Antwort und auch alle untergeordneten Antworten werden mit gelöscht. | Erfolgreich | Keine     |
+| T19  | Frage löschen                                                | Der Verfasser löscht seine Frage und auch alle dazugehörigen Antworten werden gelöscht. | Erfolgreich | Keine     |
+| T20  | Meine Beträge                                                | Es werden alle Fragen die man gestellt hat in einer Liste angezeigt | Erfolgreich | Keine     |
+| T21  | Logout                                                       | Mit einem klick auf den Logout Button wird man ausgeloggt und auf die Start-Seite weitergeleitet | Erfolgreich | Keine     |
 
 ## Fazit
 

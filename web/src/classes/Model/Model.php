@@ -303,7 +303,7 @@ abstract class Model {
         }
         $values = join(',', $values);
         $query .= " ($values)";
-        var_dump($query);
+        //var_dump($query);
         $res = $conn->exec($query);
         if ($res === false) {
             throw new Exception('DB-Fehler: ' . print_r($conn->errorInfo(), true));

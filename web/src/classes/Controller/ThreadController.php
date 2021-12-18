@@ -22,7 +22,7 @@ class ThreadController extends Controller {
         $Posts = new Post();
 
         $ThreadId = null;
-        if ($req->getParam('id')) {
+        if ($req->getParam('id') && preg_match("/^\d+$/", $req->getParam('id'))) {
             $ThreadId = $req->getParam('id');
         } else {
             header("Location:/allThreads");
@@ -99,14 +99,12 @@ class ThreadController extends Controller {
             $TC = new TagsController();
 
             if (!empty($_POST)){
-                //var_dump($_POST);
                 $data["UserId"] = $userId; 
                 $data["Date"] = date('Y-m-d H:i:s'); 
                 $data["Title"] =  $_POST["title"]; 
                 $data["Body"] = $_POST["body"]; 
                 $data["Category"] = $_POST["category"];
                 $newThreadId = $Thread->storeNewThread($data);
-                var_dump($newThreadId);
                 $catsData->UpdateThreadCount($_POST["category"]);
                 $TC->TagsVerarbeitung($_POST['tags'], $newThreadId);
                 header("Location:/thread?id=".$newThreadId);

@@ -20,7 +20,7 @@ class LoginController extends Controller {
         $error = false;
         // Wurden wir ev. von einem felhgeschlagenen Login hierher geleitet?
         if ($req->getParam('failed')) {
-            $error = 'Login-Fehler!';
+            $error = 'Username oder Passwort falsch';
         }
         
         // View (Login-Form) instanzieren, ausgeben:
