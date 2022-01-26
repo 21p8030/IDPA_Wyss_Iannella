@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat!</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+        pre {
+            background-color: #ccc;
+            border: 1px solid #888;
+            padding: 5px;
+            border-radius: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <!-- die UI-Elemente: -->
+    <div>
+        <label>Name: <input id="loginname" type="text"/></label>
+        <button id="connect">Connect!</button>
+    </div>
+    <div>
+        <label>Message: <input id="message" type="text"/></label>
+        <button id="send">Send!</button>
+    </div>
+
+    <pre id="messages"></pre>
+
+    <script>
+        // Neue WebSocket-Verbindung herstellen, global speichern:
+        var host = window.location.host.replace(/:.*/, '');
+        var port = 8030;
+        var ws = new WebSocket(`ws://${host}:${port}`);
+
+        // Wir hören auf den message-Event für einkommende Nachrichten:
+        ws.onmessage = function(e) {
+            // Wir schreiben die Nachricht ins Chat-Meldungsfenster:
+            $('#messages').append(e.data + '\n\n');
+        }
+
+        // Auf den Btn-Click senden wir die Meldung im Textfeld:
+        $('#send').on('click', function() {
+            ws.send($('#message').val());
+            $('#message').val('');
+        });
+
+        $('#connect').on('click', function() {
+            var username = $('#loginname').val();
+            var msg = {
+                type: 'login',
+                data: username
+            };
+
+
+            ws.send(JSON.stringify(msg));
+        });
+    </script>
+</body>
+
+</html>
