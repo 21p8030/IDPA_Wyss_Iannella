@@ -9,7 +9,7 @@
 <body>
     {include file='navbar.smarty'}
 
-    <h1>Herzlich Willkommen in unserem super tollen Forum</h1>
+    <h1>Herzlich Willkommen in unserem super tollen Forum IDPA</h1>
     <div style="display: flex;">
         <div class="index_wrapper">
             <ul style="display: flex;"><div class="index_list_div">Kategorie</div><div>Anzahl Beiträge</div></ul>
