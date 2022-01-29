@@ -40,4 +40,7 @@ RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 
 WORKDIR /var/www/html
 
+RUN adduser -D myuser
+USER myuser
+
 CMD composer install && apache2-foreground
