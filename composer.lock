@@ -5,7 +5,8 @@
         "This file is @generated automatically"
     ],
     "content-hash": "28bb5f0c4370e224d0e6fe96e9988e74",
-    "packages": [{
+    "packages": [
+        {
             "name": "cboden/ratchet",
             "version": "v0.4.4",
             "source": {
@@ -41,7 +42,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Chris Boden",
                     "email": "cboden@gmail.com",
                     "role": "Developer"
@@ -97,10 +99,12 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
-                "name": "Igor Wiedler",
-                "email": "igor@wiedler.ch"
-            }],
+            "authors": [
+                {
+                    "name": "Igor Wiedler",
+                    "email": "igor@wiedler.ch"
+                }
+            ],
             "description": "Événement is a very simple event dispatching library for PHP",
             "keywords": [
                 "event-dispatcher",
@@ -159,7 +163,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
                     "homepage": "https://github.com/GrahamCampbell"
@@ -210,7 +215,8 @@
                 "issues": "https://github.com/guzzle/psr7/issues",
                 "source": "https://github.com/guzzle/psr7/tree/2.1.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/GrahamCampbell",
                     "type": "github"
                 },
@@ -258,10 +264,12 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
-                "name": "PHP-FIG",
-                "homepage": "http://www.php-fig.org/"
-            }],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
             "description": "Common interfaces for PSR-7 HTTP message factories",
             "keywords": [
                 "factory",
@@ -310,10 +318,12 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
-                "name": "PHP-FIG",
-                "homepage": "http://www.php-fig.org/"
-            }],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
             "description": "Common interface for HTTP messages",
             "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
@@ -360,10 +370,12 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
-                "name": "Ralph Khattar",
-                "email": "ralph.khattar@gmail.com"
-            }],
+            "authors": [
+                {
+                    "name": "Ralph Khattar",
+                    "email": "ralph.khattar@gmail.com"
+                }
+            ],
             "description": "A polyfill for getallheaders.",
             "support": {
                 "issues": "https://github.com/ralouphie/getallheaders/issues",
@@ -403,7 +415,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Chris Boden",
                     "email": "cboden@gmail.com",
                     "role": "Developer"
@@ -458,7 +471,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
@@ -490,7 +504,8 @@
                 "issues": "https://github.com/reactphp/cache/issues",
                 "source": "https://github.com/reactphp/cache/tree/v1.1.1"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/WyriHaximus",
                     "type": "github"
                 },
@@ -536,7 +551,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
@@ -568,7 +584,8 @@
                 "issues": "https://github.com/reactphp/dns/issues",
                 "source": "https://github.com/reactphp/dns/tree/v1.9.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/WyriHaximus",
                     "type": "github"
                 },
@@ -614,7 +631,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
@@ -644,7 +662,8 @@
                 "issues": "https://github.com/reactphp/event-loop/issues",
                 "source": "https://github.com/reactphp/event-loop/tree/v1.2.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/WyriHaximus",
                     "type": "github"
                 },
@@ -657,41 +676,59 @@
         },
         {
             "name": "react/promise",
-            "version": "v2.8.0",
+            "version": "v2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise.git",
-                "reference": "f3cff96a19736714524ca0dd1d4130de73dbbbc4"
+                "reference": "234f8fd1023c9158e2314fa9d7d0e6a83db42910"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise/zipball/f3cff96a19736714524ca0dd1d4130de73dbbbc4",
-                "reference": "f3cff96a19736714524ca0dd1d4130de73dbbbc4",
+                "url": "https://api.github.com/repos/reactphp/promise/zipball/234f8fd1023c9158e2314fa9d7d0e6a83db42910",
+                "reference": "234f8fd1023c9158e2314fa9d7d0e6a83db42910",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^7.0 || ^6.5 || ^5.7 || ^4.8.36"
+                "phpunit/phpunit": "^9.3 || ^5.7 || ^4.8.36"
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "React\\Promise\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "React\\Promise\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "authors": [{
-                "name": "Jan Sorgalla",
-                "email": "jsorgalla@gmail.com"
-            }],
+            "authors": [
+                {
+                    "name": "Jan Sorgalla",
+                    "email": "jsorgalla@gmail.com",
+                    "homepage": "https://sorgalla.com/"
+                },
+                {
+                    "name": "Christian Lück",
+                    "email": "christian@clue.engineering",
+                    "homepage": "https://clue.engineering/"
+                },
+                {
+                    "name": "Cees-Jan Kiewiet",
+                    "email": "reactphp@ceesjankiewiet.nl",
+                    "homepage": "https://wyrihaximus.net/"
+                },
+                {
+                    "name": "Chris Boden",
+                    "email": "cboden@gmail.com",
+                    "homepage": "https://cboden.dev/"
+                }
+            ],
             "description": "A lightweight implementation of CommonJS Promises/A for PHP",
             "keywords": [
                 "promise",
@@ -699,9 +736,19 @@
             ],
             "support": {
                 "issues": "https://github.com/reactphp/promise/issues",
-                "source": "https://github.com/reactphp/promise/tree/v2.8.0"
+                "source": "https://github.com/reactphp/promise/tree/v2.9.0"
             },
-            "time": "2020-05-12T15:16:56+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/WyriHaximus",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/clue",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-11T10:27:51+00:00"
         },
         {
             "name": "react/promise-timer",
@@ -727,18 +774,19 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "React\\Promise\\Timer\\": "src/"
-                },
                 "files": [
                     "src/functions_include.php"
-                ]
+                ],
+                "psr-4": {
+                    "React\\Promise\\Timer\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
@@ -773,7 +821,8 @@
                 "issues": "https://github.com/reactphp/promise-timer/issues",
                 "source": "https://github.com/reactphp/promise-timer/tree/v1.8.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/WyriHaximus",
                     "type": "github"
                 },
@@ -822,7 +871,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
@@ -855,7 +905,8 @@
                 "issues": "https://github.com/reactphp/socket/issues",
                 "source": "https://github.com/reactphp/socket/tree/v1.11.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/WyriHaximus",
                     "type": "github"
                 },
@@ -899,7 +950,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Christian Lück",
                     "email": "christian@clue.engineering",
                     "homepage": "https://clue.engineering/"
@@ -935,7 +987,8 @@
                 "issues": "https://github.com/reactphp/stream/issues",
                 "source": "https://github.com/reactphp/stream/tree/v1.2.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://github.com/WyriHaximus",
                     "type": "github"
                 },
@@ -948,16 +1001,16 @@
         },
         {
             "name": "smarty/smarty",
-            "version": "v3.1.39",
+            "version": "v3.1.44",
             "source": {
                 "type": "git",
                 "url": "https://github.com/smarty-php/smarty.git",
-                "reference": "e27da524f7bcd7361e3ea5cdfa99c4378a7b5419"
+                "reference": "99085d8dc65eeb5e55ae3cba74d3dc6b3bb0205e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/e27da524f7bcd7361e3ea5cdfa99c4378a7b5419",
-                "reference": "e27da524f7bcd7361e3ea5cdfa99c4378a7b5419",
+                "url": "https://api.github.com/repos/smarty-php/smarty/zipball/99085d8dc65eeb5e55ae3cba74d3dc6b3bb0205e",
+                "reference": "99085d8dc65eeb5e55ae3cba74d3dc6b3bb0205e",
                 "shasum": ""
             },
             "require": {
@@ -982,7 +1035,8 @@
             "license": [
                 "LGPL-3.0"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Monte Ohrt",
                     "email": "monte@ohrt.com"
                 },
@@ -1004,9 +1058,9 @@
                 "forum": "http://www.smarty.net/forums/",
                 "irc": "irc://irc.freenode.org/smarty",
                 "issues": "https://github.com/smarty-php/smarty/issues",
-                "source": "https://github.com/smarty-php/smarty/tree/v3.1.39"
+                "source": "https://github.com/smarty-php/smarty/tree/v3.1.44"
             },
-            "time": "2021-02-17T21:57:51+00:00"
+            "time": "2022-01-17T23:12:04+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -1044,7 +1098,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
@@ -1058,7 +1113,8 @@
             "support": {
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v2.5.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -1075,16 +1131,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v5.4.2",
+            "version": "v5.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "ce952af52877eaf3eab5d0c08cc0ea865ed37313"
+                "reference": "ef409ff341a565a3663157d4324536746d49a0c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/ce952af52877eaf3eab5d0c08cc0ea865ed37313",
-                "reference": "ce952af52877eaf3eab5d0c08cc0ea865ed37313",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/ef409ff341a565a3663157d4324536746d49a0c7",
+                "reference": "ef409ff341a565a3663157d4324536746d49a0c7",
                 "shasum": ""
             },
             "require": {
@@ -1115,7 +1171,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
@@ -1127,9 +1184,10 @@
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/http-foundation/tree/v5.4.2"
+                "source": "https://github.com/symfony/http-foundation/tree/v5.4.3"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -1142,7 +1200,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-12-28T17:15:56+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1178,18 +1236,19 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Mbstring\\": ""
-                },
                 "files": [
                     "bootstrap.php"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Mbstring\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
                 },
@@ -1210,7 +1269,8 @@
             "support": {
                 "source": "https://github.com/symfony/polyfill-mbstring/tree/v1.24.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -1253,12 +1313,12 @@
                 }
             },
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Polyfill\\Php80\\": ""
-                },
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php80\\": ""
+                },
                 "classmap": [
                     "Resources/stubs"
                 ]
@@ -1267,7 +1327,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Ion Bazan",
                     "email": "ion.bazan@gmail.com"
                 },
@@ -1291,7 +1352,8 @@
             "support": {
                 "source": "https://github.com/symfony/polyfill-php80/tree/v1.24.0"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -1308,16 +1370,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v5.4.0",
+            "version": "v5.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "9eeae93c32ca86746e5d38f3679e9569981038b1"
+                "reference": "44b29c7a94e867ccde1da604792f11a469958981"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/9eeae93c32ca86746e5d38f3679e9569981038b1",
-                "reference": "9eeae93c32ca86746e5d38f3679e9569981038b1",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/44b29c7a94e867ccde1da604792f11a469958981",
+                "reference": "44b29c7a94e867ccde1da604792f11a469958981",
                 "shasum": ""
             },
             "require": {
@@ -1359,7 +1421,8 @@
             "license": [
                 "MIT"
             ],
-            "authors": [{
+            "authors": [
+                {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com"
                 },
@@ -1377,9 +1440,10 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/v5.4.0"
+                "source": "https://github.com/symfony/routing/tree/v5.4.3"
             },
-            "funding": [{
+            "funding": [
+                {
                     "url": "https://symfony.com/sponsor",
                     "type": "custom"
                 },
@@ -1392,7 +1456,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-11-23T10:19:22+00:00"
+            "time": "2022-01-02T09:53:40+00:00"
         }
     ],
     "packages-dev": [],
@@ -1405,5 +1469,5 @@
         "php": ">= 7.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.2.0"
 }
