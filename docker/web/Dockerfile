@@ -38,7 +38,7 @@ ENV LANGUAGE de_CH:en
 ENV LC_ALL de_CH.UTF-8
 RUN cp /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 
-WORKDIR /var/www/html
+#WORKDIR /var/www/html
 
 RUN useradd -m myuser
 USER myuser
